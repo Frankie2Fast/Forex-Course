@@ -3,156 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forex Trading Discord</title>
+  <title>Forex Trading Community</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #1a1a1a;
+      background: #111;
       color: #f4f4f9;
-      line-height: 1.6;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     header {
-      background: #0d0d0d;
+      position: relative;
+      background: linear-gradient(135deg, rgba(0, 90, 128, 0.9), rgba(0, 174, 255, 0.6)), url('https://source.unsplash.com/1600x900/?forex,finance,stocks') no-repeat center center/cover;
       color: #fff;
-      padding: 40px 0;
+      padding: 120px 20px;
       text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+      z-index: 1;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+      z-index: 2;
     }
 
     header h1 {
+      font-size: 4rem;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
       margin: 0;
-      font-size: 2.5rem;
+      z-index: 3;
     }
 
     header p {
-      font-size: 1.2rem;
-      margin: 10px 0 0;
-      color: #ccc;
+      font-size: 1.6rem;
+      margin-top: 15px;
+      color: #ddd;
+      z-index: 3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #262626;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      border-radius: 8px;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px;
+      background: #1e1e1e;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+      animation: slideUp 1s ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .image-section img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      transform: scale(0.95);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .image-section img:hover {
+      transform: scale(1.05);
     }
 
     h2 {
-      color: #007BFF;
-      margin-top: 0;
+      color: #00c3ff;
+      margin-top: 25px;
+      font-size: 2.5rem;
+      font-weight: 600;
     }
 
     ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
     }
 
     ul li {
-      background: #333;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 5px;
-      color: #f4f4f9;
+      background: #2c2c2c;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    ul li:hover {
+      background: #00c3ff;
+      color: #fff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
 
     .cta-button {
       display: inline-block;
-      background: #28a745;
+      background: linear-gradient(90deg, #ff8c00, #ff5500);
       color: #fff;
-      padding: 15px 30px;
+      padding: 22px 45px;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 1.2rem;
-      margin: 20px 0;
-      transition: background 0.3s ease;
+      border-radius: 10px;
+      font-size: 1.6rem;
+      margin: 40px 0;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 5px 20px rgba(255, 140, 0, 0.7);
     }
 
     .cta-button:hover {
-      background: #218838;
-    }
-
-    .discord-info {
-      background: #333;
-      padding: 15px;
-      border-radius: 5px;
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    .discord-info a {
-      color: #7289da;
-      text-decoration: none;
-    }
-
-    .discord-info a:hover {
-      text-decoration: underline;
-    }
-
-    .image-section {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .image-section img {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(90deg, #ff5500, #ff8c00);
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255, 85, 0, 0.8);
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 30px;
       background: #0d0d0d;
       color: #fff;
-      margin-top: 20px;
+      margin-top: 40px;
+      font-size: 1rem;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
     }
 
     footer a {
-      color: #007BFF;
+      color: #00c3ff;
       text-decoration: none;
     }
 
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Parallax scrolling */
+    .parallax {
+      background-image: url('https://source.unsplash.com/1600x900/?forex,charts');
+      height: 400px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 40px 0;
+      border-radius: 10px;
+    }
+
   </style>
 </head>
 <body>
   <header>
-    <h1>Master Forex Trading</h1>
-    <p>Join My Exclusive Discord and Start Your Journey to Financial Freedom!</p>
+    <h1>Join Our Forex Trading Community</h1>
+    <p>Connect, Learn, and Trade with Like-Minded Professionals</p>
   </header>
 
   <div class="container">
-    <div class="image-section">
-      <img src="forex-image1.jpg" alt="Forex Trading Chart">
-    </div>
+    <h2>Why Join Us?</h2>
+    <p>Forex trading is more than just numbers; it’s about strategy, timing, and a strong network. Join a group of experts and beginners alike, all working towards financial growth.</p>
 
-    <h2>Why Join This Course?</h2>
-    <p>Forex trading is one of the most powerful ways to grow your wealth, but it can be overwhelming without the right guidance. I’ll teach you everything you need to know to succeed, from the basics to advanced strategies.</p>
+    <div class="parallax"></div>
 
-    <h2>What You’ll Get:</h2>
+    <h2>Community Benefits:</h2>
     <ul>
-      <li>Step-by-step lessons for beginners and advanced traders</li>
-      <li>Live trading sessions with real-time market analysis</li>
-      <li>Proven strategies for consistent profits</li>
-      <li>Personalized feedback and support</li>
-      <li>Access to an exclusive Discord community of traders</li>
+      <li>Daily market analysis and insights</li>
+      <li>Live discussions with experienced traders</li>
+      <li>Proven trading strategies and mentorship</li>
+      <li>A strong, interactive trading network</li>
+      <li>Exclusive webinars and real-time Q&A sessions</li>
     </ul>
 
-    <div class="discord-info">
-      <p>This is hosted on Discord, where you’ll join a vibrant community of traders.
-    </div>
-
-    <a href=https://frankiepc.gumroad.com/l/sisud class="cta-button">Join Now and Start Learning!</a>
+    <a href=https://frankiepc.gumroad.com/l/sisud class="cta-button">Join the Community Now!</a>
   </div>
 
   <footer>
-    <p>© 2025 D1FCP3. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p>© 2024 Forex Trading Community. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
   </footer>
 </body>
 </html>
